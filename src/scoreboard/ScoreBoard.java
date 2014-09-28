@@ -32,7 +32,6 @@ public class ScoreBoard {
 		printMidScore();
 		printTotalScore();
 		printOutline();
-		System.out.println("");
 	}
 	
 	public void printInfo(){

@@ -7,6 +7,7 @@ public class Frame {
 	boolean isStrike;
 	boolean isSpare;
 	
+
 	public void savePins(int numOfPin) {
 		pins.add(numOfPin);
 	}
