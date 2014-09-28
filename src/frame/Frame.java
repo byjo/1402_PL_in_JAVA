@@ -85,8 +85,12 @@ public class Frame {
 			return pins.get(0) + " / " ;
 		
 		for(int i=0; i<pins.size(); i++){
-			score += pins.get(i);
-			score += " ";
+			if(pins.get(i)==0)
+				score += "- ";
+			else{
+				score += pins.get(i);
+				score += " ";
+			}
 		}
 		return score;
 	}

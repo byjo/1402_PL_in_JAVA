@@ -14,9 +14,11 @@ public class LastFrame extends Frame {
 		if(pins.size()!=3)
 			return super.getFrameScore();
 		
-		// 세번째 공을 던졌을 때, 스트라이크 여부를 확인한다.
+		// 세번째 공을 던졌을 때, 스트라이크 혹은 거터 여부를 확인한다.
 		if(pins.get(2)==10)
 			thirdPoint="X";
+		else if(pins.get(2)==0)
+			thirdPoint="-";
 		else
 			thirdPoint=pins.get(2)+"";
 
@@ -27,8 +29,12 @@ public class LastFrame extends Frame {
 			return (super.getFrameScore() + thirdPoint + " |");
 		
 		for(int i=0; i<pins.size()-1; i++){
-			score += pins.get(i);
-			score += " ";
+			if(pins.get(i)==0)
+				score += "- ";
+			else{
+				score += pins.get(i);
+				score += " ";
+			}
 		}
 		return score+"  |";
 	}
