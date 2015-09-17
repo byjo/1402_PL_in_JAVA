@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BowlingGame {
 	
-	List<Player> players;
+	private List<Player> players;
 
 	public BowlingGame(Player ... players) {
 		 this.players = Arrays.asList(players);
