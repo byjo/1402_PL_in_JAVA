@@ -8,23 +8,36 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import bowling.exception.GameOverException;
+import bowling.exception.OutOfMaxFrameException;
+import bowling.exception.OutOfMaxPinNumberException;
+import bowling.player.NormalPlayer;
+
 public class BowlingGameTest {
 	
 	BowlingGame bowlingGame;
-	Player player1, player2, player3, player4;
+	NormalPlayer player1, player2, player3, player4;
 	
 	@Before
 	public void setup() {
-		player1 = new Player();
-		player2 = new Player();
-		player3 = new Player();
-		player4 = new Player();
+		player1 = new NormalPlayer();
+		player2 = new NormalPlayer();
+		player3 = new NormalPlayer();
+		player4 = new NormalPlayer();
 		bowlingGame = new BowlingGame(player1, player2, player3, player4);
 	}
 	
 	@Test
 	public void startGame() {
 		assertTrue(bowlingGame instanceof BowlingGame);
+	}
+	
+	@Test(expected=OutOfMaxFrameException.class)
+	public void playFrameTest() throws OutOfMaxPinNumberException, OutOfMaxFrameException {
+		for (int i=0; i<11; i++) {
+			bowlingGame.playFrame();
+			assertEquals(i, bowlingGame.getPlayedFrame());
+		}
 	}
 	
 	@Test
