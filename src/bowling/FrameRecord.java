@@ -14,6 +14,10 @@ public class FrameRecord {
 		return fallenPins[period]; 
 	}
 
+	public int getFallenPin() {
+		return Arrays.stream(this.fallenPins).sum();
+	}
+
 	public boolean isStrike() {
 		return fallenPins[0] == 10;
 	}
@@ -22,8 +26,5 @@ public class FrameRecord {
 		return (fallenPins[0] != 10) && (fallenPins[0]+fallenPins[1] == 10);
 	}
 
-	public int getTotalFallenPin() {
-		return Arrays.stream(this.fallenPins).sum();
-	}
 
 }
